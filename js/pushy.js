@@ -14,12 +14,12 @@
     siteOverlay = $(".site-overlay"), //site overlay
     menuBtn = $(".menu-btn, .pushy-link"), //css classes to toggle the menu
     menuCloseBtn = $(".pushy-close"), //css classes to toggle the menu
-    menuBtnFocus = $(".menu-btn"), //css class to focus when menu is closed w/ esc key
     menuLinkFocus = $(pushy.data("focus")), //focus on link when menu is open
     submenuClass = ".pushy-submenu",
     submenuOpenClass = "pushy-submenu-open",
     submenuClosedClass = "pushy-submenu-closed",
     submenu = $(submenuClass),
+    focusEl = null,
     opened = false;
 
   function togglePushy(e) {
@@ -41,13 +41,15 @@
     //focus on menu button after menu is closed
     // TODO return focus to activeElement
     // TODO aria-hidden stuff
-    if (menuBtnFocus) {
-      menuBtnFocus.focus();
+    if (focusEl) {
+      focusEl.focus();
     }
   }
 
   function openPushy(e) {
     opened = true;
+    focusEl = e.target;
+
     if (pushy.hasClass(pushyLeft)) {
       body.addClass(pushyOpenLeft);
     } else {
