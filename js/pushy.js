@@ -52,19 +52,21 @@
     focusEl = e.target;
     pushy.css("display", "block");
 
-    if (pushy.hasClass(pushyLeft)) {
-      body.addClass(pushyOpenLeft);
-    } else {
-      body.addClass(pushyOpenRight);
-    }
+    setTimeout(function() {
+      if (pushy.hasClass(pushyLeft)) {
+        body.addClass(pushyOpenLeft);
+      } else {
+        body.addClass(pushyOpenRight);
+      }
 
-    //focus on link in menu after css transition ends
-    // TODO aria-hidden stuff
-    if (menuLinkFocus) {
-      pushy.one("transitionend", function() {
-        menuLinkFocus.focus();
-      });
-    }
+      //focus on link in menu after css transition ends
+      // TODO aria-hidden stuff
+      if (menuLinkFocus) {
+        pushy.one("transitionend", function() {
+          menuLinkFocus.focus();
+        });
+      }
+    }, 10);
   }
 
   function toggleSubmenu() {
