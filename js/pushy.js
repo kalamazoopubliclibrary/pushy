@@ -39,7 +39,7 @@
     }
 
     pushy.one("transitionend", function() {
-      push.css("display", "none");
+      pushy.css("display", "none");
 
       if (focusEl) {
         focusEl.focus();
@@ -50,7 +50,7 @@
   function openPushy(e) {
     opened = true;
     focusEl = e.target;
-    push.css("display", "block");
+    pushy.css("display", "block");
 
     if (pushy.hasClass(pushyLeft)) {
       body.addClass(pushyOpenLeft);
