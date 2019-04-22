@@ -1,5 +1,6 @@
 {
   "description": "forked from @cmyee, Pushy is a responsive off-canvas navigation menu using CSS transforms & transitions",
+  "version": "1.1.2",
   "homepage": "https://chrisyee.ca/pushy/",
   "license": "MIT",
   "author": {
