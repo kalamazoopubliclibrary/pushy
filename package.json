@@ -1,7 +1,7 @@
 {
   "name": "@kalamazoopubliclibrary/pushy",
   "description": "forked from @cmyee, Pushy is a responsive off-canvas navigation menu using CSS transforms & transitions",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "homepage": "https://chrisyee.ca/pushy/",
   "license": "MIT",
   "author": {
