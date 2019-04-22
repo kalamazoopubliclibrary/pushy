@@ -16,23 +16,21 @@
     menuCloseBtn = $(".pushy-close"), //css classes to toggle the menu
     menuBtnFocus = $(".menu-btn"), //css class to focus when menu is closed w/ esc key
     menuLinkFocus = $(pushy.data("focus")), //focus on link when menu is open
-    menuSpeed = 200, //jQuery fallback menu speed
-    menuWidth = pushy.width() + "px", //jQuery fallback menu width
     submenuClass = ".pushy-submenu",
     submenuOpenClass = "pushy-submenu-open",
     submenuClosedClass = "pushy-submenu-closed",
     submenu = $(submenuClass),
     opened = false;
 
-  function togglePushy() {
+  function togglePushy(e) {
     if (opened) {
-      closePushy();
+      closePushy(e);
     } else {
-      openPushy();
+      openPushy(e);
     }
   }
 
-  function closePushy() {
+  function closePushy(e) {
     opened = false;
     if (pushy.hasClass(pushyLeft)) {
       body.removeClass(pushyOpenLeft);
@@ -48,7 +46,7 @@
     }
   }
 
-  function openPushy() {
+  function openPushy(e) {
     opened = true;
     if (pushy.hasClass(pushyLeft)) {
       body.addClass(pushyOpenLeft);
@@ -67,9 +65,9 @@
 
   function toggleSubmenu() {
     //hide submenu by default
-    $(submenuClass).addClass(submenuClosedClass);
+    submenu.addClass(submenuClosedClass);
 
-    $(submenuClass).on("click", function(e) {
+    submenu.on("click", function(e) {
       var selected = $(this);
 
       if (selected.hasClass(submenuClosedClass)) {
@@ -93,8 +91,8 @@
   toggleSubmenu();
 
   //toggle menu
-  menuBtn.on("click", function() {
-    togglePushy();
+  menuBtn.on("click", function(e) {
+    togglePushy(e);
   });
 
   //close menu when clicking site overlay or close button
