@@ -38,17 +38,19 @@
       body.removeClass(pushyOpenRight);
     }
 
-    //focus on menu button after menu is closed
-    // TODO return focus to activeElement
-    // TODO aria-hidden stuff
-    if (focusEl) {
-      focusEl.focus();
-    }
+    pushy.one("transitionend", function() {
+      push.css("display", "none");
+
+      if (focusEl) {
+        focusEl.focus();
+      }
+    });
   }
 
   function openPushy(e) {
     opened = true;
     focusEl = e.target;
+    push.css("display", "block");
 
     if (pushy.hasClass(pushyLeft)) {
       body.addClass(pushyOpenLeft);
